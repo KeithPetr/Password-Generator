@@ -7,18 +7,23 @@ body {
     background-color: #1C1C1C;
 }
 
-.container {
+.container-background {
     background-color: #1F2937;
-    width: 550px;
-    height: 550px;
+    width: 480px;
     margin: 90px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     font-size: 1.25rem;
-    padding: 10em 2em;
+    padding: 1em 2em;
 }
 
 span {
@@ -39,8 +44,27 @@ h3 {
     font-weight: bold;
 }
 
-.btn {
-    margin-top: 2em;
+.options {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.options {
+    width: 100%;
+}
+
+.password-control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+}
+
+#length {
+    width: 60px;
+}
+
+.generate-btn {
     background-color: #059669;
     color: #FFFFFF;
     font-size: 1.5rem;
@@ -50,13 +74,13 @@ h3 {
     font-weight: bold;
 }
 
-.btn:hover {
+.generate-btn:hover {
     background-color: #D1D5DB;
     color: #059669;
     cursor: pointer;
 }
 
-.btn:active {
+.generate-btn:active {
     position: relative;
     top: 2px;
 }
@@ -64,35 +88,28 @@ h3 {
 .border {
     width: 100%;
     border: 1px solid #2F3E53;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
-.passwords {
+.password-area {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin-top: 1em;
 }
 
 .password {
     background-color: #273549;
-    padding: .5em 0;
+    padding: .4em;
     margin-top: 1em;
     border-radius: 10px;
     font-size: 1.2rem;
     color: #4ADF86;
-    width: 225px;
+    width: 275px;
     height: 39px;
     text-align: center;
     border: none;
     overflow: hidden;
     resize: none;
-}
-
-.copy {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
 }
 
 .copy-btn {
@@ -102,7 +119,8 @@ h3 {
     font-weight: bold;
     letter-spacing: 1px;
     color: #ffffff;
-    border-radius: 10px; 
+    border-radius: 10px;
+    border: none;
 }
 
 .copy-btn:hover {
