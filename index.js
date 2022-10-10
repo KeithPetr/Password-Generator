@@ -70,6 +70,8 @@ function generateX() {
     return xs[Math.floor(Math.random() * xs.length)]
 }
 
+
+
 generateBtn.addEventListener("click", generatePassword)
 
 // ----- Copy Password -----
