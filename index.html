@@ -17,7 +17,7 @@
         <div class="options">
           <div class="password-control">
             <label for="length">Password Length</label>
-            <input type="number" id="length-el" />
+            <input type="number" id="length-el" min="10" max="16" onKeyDown="return false" />
           </div>
           <div class="password-control">
             <label for="uppercase">Contain uppercase letters</label>
@@ -41,7 +41,7 @@
         </button>
         <div class="border"></div>
         <div class="password-area">
-          <textarea class="password" id="password"></textarea>
+          <textarea class="password" id="password-el"></textarea>
           <button class="copy-btn" id="copy-btn">COPY</div>
         </div>
       </div>

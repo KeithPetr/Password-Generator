@@ -7,7 +7,7 @@ const uppercaseChar = ["A","B","C","D","E","F","G","H","I","J","K","L",
  const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")",
     "_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
 
-let password = document.getElementById('password');
+let passwordEl = document.getElementById('password-el');
 let passwordLength = document.getElementById('length-el');
 let uppercaseCheck = document.getElementById('uppercase')
 let lowercaseCheck = document.getElementById('lowercase')
@@ -18,44 +18,70 @@ let copyBtn = document.getElementById('copy-btn')
 
 let newPassword = []
 
+// ----- Get individual characters -----
 
 function getUppercase() {
     return uppercaseChar[Math.floor(Math.random() * uppercaseChar.length)]
 }
 
-console.log(getUppercase())
 
 function getLowercase() {
     return lowercaseChar[Math.floor(Math.random() * lowercaseChar.length)]
 }
 
-console.log(getLowercase())
 
 function getNumbers() {
     return numbers[Math.floor(Math.random() * numbers.length)]
 }
 
-console.log(getNumbers())
 
 function getSymbols() {
     return symbols[Math.floor(Math.random() * symbols.length)]
 }
 
-console.log(getSymbols())
+
+// ----- Generate Password -----
 
 function generatePassword() {
     const length = passwordLength.value
-    password = ""
+    let password = ""
+    for (let i = 0; i < length; i++) {
+        const x = generateX();
+        password += x
+    }
+    passwordEl.textContent = password
 }
+
+function generateX() {
+    const xs = [];
+    if (uppercaseCheck.checked) {
+        xs.push(getUppercase())
+    }
+    if (lowercaseCheck.checked) {
+        xs.push(getLowercase())
+    }
+    if (numbersCheck.checked) {
+        xs.push(getNumbers())
+    }
+    if (symbolsCheck.checked) {
+        xs.push(getSymbols())
+    }
+    if (xs.length === 0) return "";
+    return xs[Math.floor(Math.random() * xs.length)]
+}
+
+generateBtn.addEventListener("click", generatePassword)
+
+// ----- Copy Password -----
 
 function copy() {
   
     // Select the text field
-    password.select();
-    password.setSelectionRange(0, 99999); // For mobile devices
+    passwordEl.select();
+    passwordEl.setSelectionRange(0, 99999); // For mobile devices
   
      // Copy the text inside the text field
-    navigator.clipboard.writeText(password.value);
+    navigator.clipboard.writeText(passwordEl.value);
   
     // Alert the copied text
     alert("Copied the text!");
